@@ -94,6 +94,8 @@ body {
 .row { display: flex; gap: 8px; margin-bottom: 8px; }
 .row .btn { flex: 1; }
 .hint { color: var(--muted); font-size: 13px; line-height: 1.5; }
+/* Full-screen cover shot (?shot=cover): the canvas fills the viewport and
+   letterboxes the 1920×1080 render, so the exported framing is what you see. */
 .cover-shot { margin: 0; padding: 0; background: #000; }
 .cover-shot canvas { display: block; width: 100vw; height: 100vh; object-fit: contain; background: #000; }
 @media (max-width: 860px) {

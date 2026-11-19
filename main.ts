@@ -4,9 +4,15 @@
 // erasable TypeScript so `node main.ts` runs it with no build step.
 
 import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
 import { buildDossier } from './vendor/makefun-app.ts';
 
+// The scorer may invoke this file from any working directory (e.g.
+// `node /bot/main.ts`), so every path below is anchored to this file's
+// location via import.meta.url — never to process.cwd(). The output
+// directory is the only path that still honours the caller's cwd, and
+// only when MAKEFUN_OUTPUT_DIR is not set.
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR
   ? resolve(process.env.MAKEFUN_OUTPUT_DIR)
   : resolve('output');
@@ -45,7 +51,8 @@ function copyTree(srcDir: string, destDir: string): number {
 }
 
 function main(): void {
-  const repoRoot = resolve('.');
+  // Repo root is the directory holding this file, not the caller's cwd.
+  const repoRoot = dirname(fileURLToPath(import.meta.url));
   const appDir = join(repoRoot, 'app');
   const shotsDir = join(repoRoot, 'screenshots');
   if (!existsSync(appDir) || !statSync(appDir).isDirectory()) {

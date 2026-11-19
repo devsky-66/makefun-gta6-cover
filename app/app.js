@@ -124,6 +124,8 @@ function makeGrain() {
   return c;
 }
 function drawImageCover(ctx, img, x, y, w, h, ox, oy, scale) {
+  // Cover-fit: scale so the photo fills the whole panel (the larger of the
+  // two axis ratios wins), then centre it; ox/oy nudge it in panel fractions.
   var iw = img.naturalWidth, ih = img.naturalHeight;
   var s = Math.max(w / iw, h / ih) * (scale || 1);
   var dw = iw * s, dh = ih * s;

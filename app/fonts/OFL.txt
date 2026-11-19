@@ -91,3 +91,8 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
+
+---
+Note on the fonts bundled with this app
+---
+The Anton and Pacifico font files shipped under app/fonts/ (Anton-Regular.ttf and Pacifico-Regular.ttf) are distributed under the SIL Open Font License 1.1 reproduced above. Anton was designed by Vernon Adams and Pacifico by Vernon Adams; both are available from Google Fonts (fonts.google.com/specimen/Anton and fonts.google.com/specimen/Pacifico), where their OFL licensing is stated. This note is an attribution aid only and does not alter the license text above.

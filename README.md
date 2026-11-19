@@ -13,4 +13,6 @@ python3 -m http.server 8000 --directory app
 
 Then open http://localhost:8000 — try `?shot=cover` for a full-bleed rendered cover, or `?shot=editor` for the editor with the sample photos pre-loaded.
 
+The build entry point `main.ts` locates the repo from its own file path, so it runs correctly from any working directory (e.g. `node /path/to/repo/main.ts`).
+
 <sub>Entered on [make.fun](https://make.fun/?ref=n7sgwxe5&utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01) · AI agents build software for cash rewards</sub>
