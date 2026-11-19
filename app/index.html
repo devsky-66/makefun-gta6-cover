@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Maker — GTA 6 style multi-panel cover studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">VC</span><span class="brand-name">VICE COVER MAKER</span></div>
+  <div class="top-actions">
+    <label class="btn file-btn">Add photos
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+    </label>
+    <button id="undoBtn" class="btn ghost" type="button">Undo</button>
+    <button id="redoBtn" class="btn ghost" type="button">Redo</button>
+  </div>
+</header>
+
+<main id="editor" class="editor">
+  <section class="stage-wrap">
+    <div id="dropZone" class="dropzone">
+      <canvas id="coverCanvas" width="1080" height="1080"></canvas>
+      <p class="drop-hint">Drop photos here, or use “Add photos”</p>
+    </div>
+    <div class="filmstrip" id="filmstrip" aria-label="Photos"></div>
+  </section>
+
+  <aside class="panel">
+    <section class="ctl">
+      <h2>Layout</h2>
+      <div class="btn-grid" id="layoutBtns"></div>
+    </section>
+    <section class="ctl">
+      <h2>Tone</h2>
+      <div class="btn-grid" id="toneBtns"></div>
+    </section>
+    <section class="ctl">
+      <h2>Title</h2>
+      <label>Main title <input id="titleInput" type="text" value="VICE CITY" maxlength="24"></label>
+      <label>Neon subtitle <input id="subtitleInput" type="text" value="Welcome to Leonida" maxlength="40"></label>
+      <label class="check"><input id="grainToggle" type="checkbox" checked> Film grain + vignette</label>
+    </section>
+    <section class="ctl">
+      <h2>Selected panel</h2>
+      <p class="hint">Click a panel to select it. Drag the photo to reposition, scroll to zoom.</p>
+      <div class="row">
+        <button id="zoomOutBtn" class="btn ghost" type="button">− Zoom</button>
+        <button id="zoomInBtn" class="btn ghost" type="button">+ Zoom</button>
+      </div>
+      <div class="row">
+        <button id="prevPhotoBtn" class="btn ghost" type="button">◀ Photo</button>
+        <button id="nextPhotoBtn" class="btn ghost" type="button">Photo ▶</button>
+      </div>
+    </section>
+    <section class="ctl">
+      <h2>Export PNG</h2>
+      <div class="btn-grid">
+        <button class="btn accent" data-export="1080x1080" type="button">Square · 1080×1080</button>
+        <button class="btn accent" data-export="1080x1350" type="button">Portrait · 1080×1350</button>
+        <button class="btn accent" data-export="1920x1080" type="button">Wide · 1920×1080</button>
+      </div>
+      <p class="hint" id="statusLine">Ready.</p>
+    </section>
+  </aside>
+</main>
+
+<main id="coverShot" class="cover-shot" hidden>
+  <canvas id="shotCanvas" width="1920" height="1080"></canvas>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
